@@ -31,7 +31,7 @@ App {
                }
 
                onRelease: {
-                   t.text = "released"
+                   t.text = "Released"
                }
 
             }
