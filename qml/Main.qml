@@ -10,10 +10,17 @@ App {
     //  * Add plugins to monetize, analyze & improve your apps (available with the Pro Licenses)
     //licenseKey: "<generate one from https://felgo.com/licenseKey>"
 
+
     NavigationStack {
+        id: stack
+
+          navigationBar.backgroundColor: "red"
+          navigationBar.height: 100
 
         Page {
+            id: pape
             title: qsTr("Main Page")
+
 
             Image {
                 id: img
@@ -28,12 +35,13 @@ App {
                 anchors.horizontalCenter: parent.horizontalCenter
                onPessed: {
                    t.text = "Pessed"
+                   pape.navigationBarHidden = !pape.navigationBarHidden
+
                }
 
                onRelease: {
                    t.text = "Released"
                }
-
 
                imgBlink: "../assets/arrow.png"
 
@@ -48,7 +56,11 @@ App {
                 anchors.horizontalCenter: parent.horizontalCenter
             }
 
-            //thinh
+
+            Component.onCompleted: {
+                Theme.colors.statusBarStyle = Theme.colors.statusBarStyleHidden
+            }
+
         }
 
     }
