@@ -3,8 +3,11 @@ import QtQuick 2.0
 
 Item {
     id: button_1
-    height: 100
-    width: 200
+
+    height: (img.source !== "") ? img.height : 100
+    width:  (img.source !== "") ? img.width : 200
+    property alias  imgBlink: img.source
+
     signal pessed()
     signal release()
     Rectangle{
@@ -12,7 +15,16 @@ Item {
         anchors.fill: parent
         color: "red"
         radius: 20
+        visible: (img.source === "")
     }
+
+    Image {
+        id: img
+        height: sourceSize.height
+        width: sourceSize.width
+        visible: (img.source !== "")
+    }
+
     MouseArea{
         anchors.fill: parent
         onPressed: {

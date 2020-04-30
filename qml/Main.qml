@@ -34,6 +34,9 @@ App {
                    t.text = "Released"
                }
 
+
+               imgBlink: "../assets/arrow.png"
+
             }
 
             Text {
