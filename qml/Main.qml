@@ -18,6 +18,7 @@ App {
                 source: "../assets/felgo-logo.png"
                 anchors.centerIn: parent
             }
+            //thinh
         }
 
     }
