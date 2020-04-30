@@ -1,5 +1,6 @@
 import Felgo 3.0
 import QtQuick 2.0
+import "common"
 
 App {
     // You get free licenseKeys from https://felgo.com/licenseKey
@@ -21,13 +22,26 @@ App {
                 width: sourceSize.width
                 anchors.centerIn: parent
             }
-
-            Rectangle{
-                id: red
-                height: 100
-                width: 100
-                color: "red"
+            Button_1{
+                id: btn
                 anchors.top: img.bottom
+                anchors.horizontalCenter: parent.horizontalCenter
+               onPessed: {
+                   t.text = "Pessed"
+               }
+
+               onRelease: {
+                   t.text = "released"
+               }
+
+            }
+
+            Text {
+                id: t
+                font.pixelSize: 30
+                color: "black"
+                anchors.top: parent.top
+                anchors.topMargin: 100
                 anchors.horizontalCenter: parent.horizontalCenter
             }
 
