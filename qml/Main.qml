@@ -15,9 +15,22 @@ App {
             title: qsTr("Main Page")
 
             Image {
+                id: img
                 source: "../assets/felgo-logo.png"
+                height: sourceSize.height
+                width: sourceSize.width
                 anchors.centerIn: parent
             }
+
+            Rectangle{
+                id: red
+                height: 100
+                width: 100
+                color: "red"
+                anchors.top: img.bottom
+                anchors.horizontalCenter: parent.horizontalCenter
+            }
+
             //thinh
         }
 
