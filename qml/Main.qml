@@ -10,58 +10,31 @@ App {
     //  * Add plugins to monetize, analyze & improve your apps (available with the Pro Licenses)
     //licenseKey: "<generate one from https://felgo.com/licenseKey>"
 
+          Page{
+              id: pape
+              anchors.fill: parent
+              Image {
+                  id: bgr
+                  source: "../assets/bgr01.png"
+                  anchors.fill: parent
+              }
+              Rectangle{
+                  id: mat_na
+                  color: "black"
+                  opacity: 0.1
+                  anchors.fill: parent
+              }
+              LoginPape{
+                  id: loginS
+                  anchors.fill: parent
+              }
+              Component.onCompleted: {
+                 pape.navigationBarHidden = !pape.navigationBarHidden
+              }
 
-    NavigationStack {
-        id: stack
-
-          navigationBar.backgroundColor: "red"
-          navigationBar.height: 100
-
-        Page {
-            id: pape
-            title: qsTr("Main Page")
-
-
-            Image {
-                id: img
-                source: "../assets/felgo-logo.png"
-                height: sourceSize.height
-                width: sourceSize.width
-                anchors.centerIn: parent
-            }
-            Button_1{
-                id: btn
-                anchors.top: img.bottom
-                anchors.horizontalCenter: parent.horizontalCenter
-               onPessed: {
-                   t.text = "Pessed"
-                   pape.navigationBarHidden = !pape.navigationBarHidden
-
-               }
-
-               onRelease: {
-                   t.text = "Released"
-               }
-
-               imgBlink: "../assets/arrow.png"
-
-            }
-
-            Text {
-                id: t
-                font.pixelSize: 30
-                color: "black"
-                anchors.top: parent.top
-                anchors.topMargin: 100
-                anchors.horizontalCenter: parent.horizontalCenter
-            }
+          }
 
 
-            Component.onCompleted: {
-                Theme.colors.statusBarStyle = Theme.colors.statusBarStyleHidden
-            }
 
-        }
 
-    }
 }

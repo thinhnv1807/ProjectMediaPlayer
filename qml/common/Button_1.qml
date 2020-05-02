@@ -1,13 +1,14 @@
 import Felgo 3.0
 import QtQuick 2.0
+import "../../assets/"
+
 
 Item {
     id: button_1
 
     height: (img.source !== "") ? img.height : 100
     width:  (img.source !== "") ? img.width : 200
-    property alias  imgBlink: img.source
-
+    property alias  img: img
     signal pessed()
     signal release()
     Rectangle{
@@ -22,18 +23,20 @@ Item {
         id: img
         height: sourceSize.height
         width: sourceSize.width
-        visible: (img.source !== "")
     }
+
+
+
 
     MouseArea{
         anchors.fill: parent
         onPressed: {
-            background.color = "green"
+
             pessed()
         }
 
         onReleased: {
-            background.color = "red"
+
             release()
         }
     }
